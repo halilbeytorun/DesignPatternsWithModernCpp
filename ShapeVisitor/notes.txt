@@ -1,0 +1,5 @@
+1. define pure virtual accept(ShapeVisitor) in Shape base class
+2. implement accept member function of derived class for Shape like Circle as follows:
+    v.visit(*this);
+3. define pure virtual visit member function for each derived type (Circle, Square ...) in ShapeVisitor base class
+4. implement visit member functions for each derived ShapeVisitor class like Draw  
