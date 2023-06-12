@@ -1,0 +1,2 @@
+#define ShapeVisitor_Version_Major @ShapeVisitor_VERSION_MAJOR@
+#define ShapeVisitor_Version_Minor @ShapeVisitor_VERSION_MINOR@

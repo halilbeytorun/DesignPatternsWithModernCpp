@@ -5,6 +5,7 @@
 #include "Circle.h"
 #include "Square.h"
 #include "Calculate.h"
+#include <AcyclicVisitorConfig.h>
 
 void drawAllShapes(std::vector<std::unique_ptr<Shape>> const& shapes)
 {
@@ -15,6 +16,8 @@ void drawAllShapes(std::vector<std::unique_ptr<Shape>> const& shapes)
 
 int main()
 {
+	std::cout << "AcyclicVisitor version:" << AcyclicVisitor_Version_Major << "." << AcyclicVisitor_Version_Minor << "\n";
+
 	std::vector<std::unique_ptr<Shape>> myShapes;
 	myShapes.push_back(std::make_unique<Circle>(2.0));
 	myShapes.push_back(std::make_unique<Square>(2.0));

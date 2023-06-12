@@ -3,6 +3,7 @@
 #include<Square.h>
 #include<Shapes.h>
 #include<Draw.h>
+#include <VisitorVariantShapeConfig.h>
 
 void drawAllShapes(Shapes const& shapes)
 {
@@ -15,6 +16,8 @@ void drawAllShapes(Shapes const& shapes)
 
 int main()
 {
+	std::cout << "VisitorVariantShape version:" << VisitorVariantShape_Version_Major << "." << VisitorVariantShape_Version_Minor << "\n";
+
 	Shapes shapes;
 	
 	shapes.emplace_back(Circle{ 2.3 });

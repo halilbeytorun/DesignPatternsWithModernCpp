@@ -1,0 +1,2 @@
+#define AcyclicVisitor_Version_Major @AcyclicVisitor_VERSION_MAJOR@
+#define AcyclicVisitor_Version_Minor @AcyclicVisitor_VERSION_MINOR@

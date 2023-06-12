@@ -1,0 +1,2 @@
+#define VisitorVariantShape_Version_Major @VisitorVariantShape_VERSION_MAJOR@
+#define VisitorVariantShape_Version_Minor @VisitorVariantShape_VERSION_MINOR@
