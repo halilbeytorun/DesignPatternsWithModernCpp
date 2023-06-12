@@ -1,0 +1,3 @@
+* Create diagram explenation to ShapeVisitor.
+* Create CMakeLists.txt for everyproject.
+* Should explain the advantages/disadantages of the designs in their recipes.
