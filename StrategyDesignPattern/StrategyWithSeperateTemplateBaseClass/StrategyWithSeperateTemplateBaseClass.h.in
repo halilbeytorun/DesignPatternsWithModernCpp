@@ -1,0 +1,2 @@
+#define StrategyWithSeperateTemplateBaseClass_Version_Major @StrategyWithSeperateTemplateBaseClass_VERSION_MAJOR@
+#define StrategyWithSeperateTemplateBaseClass_Version_Minor @StrategyWithSeperateTemplateBaseClass_VERSION_MINOR@

@@ -1,0 +1,2 @@
+#define StrategyWithDesignFlaw_Version_Major @StrategyWithDesignFlaw_VERSION_MAJOR@
+#define StrategyWithDesignFlaw_Version_Minor @StrategyWithDesignFlaw_VERSION_MINOR@
