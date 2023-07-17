@@ -1,2 +1,3 @@
 * Create diagram explenation to ShapeVisitor.
 * Should explain the advantages/disadantages of the designs in their recipes.
+* What is dependency injection?
