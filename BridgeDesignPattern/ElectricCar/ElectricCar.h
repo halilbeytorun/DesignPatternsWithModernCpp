@@ -2,13 +2,13 @@
 
 #include <Engine.h>
 #include <memory>
+#include <Car.h>
 
-class ElectricCar
+class ElectricCar : public Car
 {
 public:
-	ElectricCar();
-	void drive();
+	explicit ElectricCar();
+	void drive() override;
 private:
-	std::unique_ptr<Engine> engine_;
 };
 
