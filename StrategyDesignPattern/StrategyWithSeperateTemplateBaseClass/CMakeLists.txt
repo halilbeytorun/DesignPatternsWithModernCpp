@@ -10,6 +10,6 @@ configure_file(StrategyWithSeperateTemplateBaseClass.h.in StrategyWithSeperateTe
 include_directories(${PROJECT_SOURCE_DIR})
 include_directories(${PROJECT_BINARY_DIR})
 
-set(SOURCE Main.cpp)
+set(SOURCE Main.cpp Circle.h DrawStrategy.h OpenGLCircleStrategy.h OpenGLSquareStrategy.h Shape.h Square.h)
 
 add_executable(StrategyWithSeperateTemplateBaseClassTarget ${SOURCE})
