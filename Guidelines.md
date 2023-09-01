@@ -1,4 +1,4 @@
-##  Gudideline 1: Understand the Importance of Software Design
+##  Guideline 1: Understand the Importance of Software Design
 ### Features are not software design
 The essential code properties we can say are probably: readability, testability, maintainability, extensiblity, reusability and scalability.
 But to achieve these properties does not come from features of the language. The structure of the program is responsible for these properties.
