@@ -1,4 +1,11 @@
 ##  Guideline 1: Understand the Importance of Software Design
+- Treat software design as an essential part of writing software.
+- Focus less on C++ language details and more on software design.
+- Avoid unnecessary coupling and dependencies to make software more adaptable to frequent changes.
+- Understand software design as the art of managing dependencies and abstractions.
+- Consider the boundary between software design and software architecture as fluid.
+
+
 ### Features are not software design
 The essential code properties we can say are: readability, testability, maintainability, extensiblity, reusability and scalability.
 But achieving these properties does not come from features of the language. The structure of the program is responsible for these properties.
@@ -17,10 +24,24 @@ There are unavoidable dependencies and artificial dependencies. The software dev
 The concept of idiom can make the seperation of the three levels a little bit harder. An *idiom* is a commonly used but language-specific solution for a recurring problem. As such, an idiom also represents a pattern, but it could be either an implementation pattern or a design pattern. We can say that C++ idioms are the best practices of the C++ community for either design or implementation. In C++, most idioms fall into the category of implementation details. For instance, there is *copy-and-swap* and *RAII* idiom. *Non-Virtual Interface* idiom and *Pimpl* idiom are in the category Software Design. These two design idioms are based on two classic design patterns: the Template Method design pattern and Bridge design pattern, respectively.
 
 ### The Focus on Features
+There are three main 
+- There are so many features, we need to talk about them.
+- Expectations from features are high, hoping to solve design issues which is not the case.
+- Complexity in them is small comparing to software designs since the former has set of rules while latter depends on many things.
+Features alone cannot solve project.
 
-
+### The Focus on Software Design and Design Principles
+While features are important, software design is more important.
 
 ##  Guideline 2: Design for Change
+One of the essential expectations from software is its ability to change easily in comparison with hardware. However, from experiance, it may be hard to change it.
+
 ##  Guideline 3: Seperate Interfaces to Avoid Artificial Coupling
+
+### Seperations of Concerns
+Seperation of concerns is named different thinhs which of them mean nearly the same. The most common one is SRP in SOLID principles.
+The idea is to group only those things that truly belong together, and seperate everything that does not strictly belong. Or, seperate those things that change for different reasons.
+By doing this, artificial coupling is reduced and the code is more adaptable to change.
+
 ##  Guideline 4: Design for Testability
 ##  Guideline 5: Design for Extension
