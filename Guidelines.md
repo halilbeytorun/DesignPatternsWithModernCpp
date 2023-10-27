@@ -36,12 +36,16 @@ While features are important, software design is more important.
 ##  Guideline 2: Design for Change
 One of the essential expectations from software is its ability to change easily in comparison with hardware. However, from experiance, it may be hard to change it.
 
-##  Guideline 3: Seperate Interfaces to Avoid Artificial Coupling
-
 ### Seperations of Concerns
 Seperation of concerns is named different thinhs which of them mean nearly the same. The most common one is SRP in SOLID principles.
 The idea is to group only those things that truly belong together, and seperate everything that does not strictly belong. Or, seperate those things that change for different reasons.
 By doing this, artificial coupling is reduced and the code is more adaptable to change.
+
+
+##  Guideline 3: Seperate Interfaces to Avoid Artificial Coupling
+
+
+
 
 ##  Guideline 4: Design for Testability
 ##  Guideline 5: Design for Extension
