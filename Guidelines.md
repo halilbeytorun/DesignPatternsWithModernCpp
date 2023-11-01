@@ -34,6 +34,15 @@ Features alone cannot solve project.
 While features are important, software design is more important.
 
 ##  Guideline 2: Design for Change
+- Expect change in software.
+- Design for easy change and make software more adaptable.
+- Avoid combining unrelated, orthogonal aspects to prevent coupling.
+- Understand that coupling increases the likelihood for change and makes changes harder.
+- Adhere to the Single-Reponsibility Principle (SRP) to separate concerns.
+- Follow the Don't Repeat Yourself (DRY) principle to minimize duplication.
+- Avoid premature abstraction if you are not sure about the next change.
+
+
 One of the essential expectations from software is its ability to change easily in comparison with hardware. However, from experiance, it may be hard to change it.
 
 ### Seperations of Concerns
@@ -41,10 +50,19 @@ Seperation of concerns is named different thinhs which of them mean nearly the s
 The idea is to group only those things that truly belong together, and seperate everything that does not strictly belong. Or, seperate those things that change for different reasons.
 By doing this, artificial coupling is reduced and the code is more adaptable to change.
 
+### Don't Repeat Yourself
+
+### Avoid Premature Separation of Concerns
+Don't try to achieve SOLID, use SOLID to achieve maintainability.
+
 
 ##  Guideline 3: Seperate Interfaces to Avoid Artificial Coupling
 
 
+### Segregate Interfaces to Separate Concerns
+Interface Segregation Principle, clients should not be forced to depend on methods that they do not use.
+
+### Minimizing Requirements of Template Arguments
 
 
 ##  Guideline 4: Design for Testability
