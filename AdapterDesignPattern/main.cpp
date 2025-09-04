@@ -28,6 +28,7 @@ public:
   }
 };
 
+// External library
 class SquarePeg
 {
   int width_{};
@@ -36,6 +37,7 @@ public:
   int width() const { return width_;}
 };
 
+// Adapter for external library
 class SquarePegAdapter : public RoundPeg
 {
   SquarePeg& square_peg_;
