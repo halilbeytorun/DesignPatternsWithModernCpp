@@ -47,10 +47,16 @@ public:
 
 int main()
 {
+//      win1
+//    /     \
+//  dot1      win2
+//          /   |   \
+//        dot2  dot3  dot4
+
   unique_ptr<API> dot1 = make_unique<Dot>("dot1");
   unique_ptr<API> dot2 = make_unique<Dot>("dot2");
   unique_ptr<API> dot3 = make_unique<Dot>("dot3");
-  unique_ptr<API> dot4 = make_unique<Dot>("dot3");
+  unique_ptr<API> dot4 = make_unique<Dot>("dot4");
 
   Window win1("win1");
   win1.add_element(move(dot1));
