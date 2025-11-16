@@ -1,0 +1,152 @@
+@startuml
+title Duck Reunion - Class Diagram
+
+' overall flow top -> bottom
+top to bottom direction
+
+' --- Top row: QuackObservable and AbstractDuckFactory side-by-side ---
+together {
+    interface QuackObservable {
+        +registerObserver(Observer)
+        +notifyObservers()
+    }
+
+    abstract class AbstractDuckFactory {
+        +createMallardDuck(): Quackable
+        +createRedheadDuck(): Quackable
+        +createDuckCall(): Quackable
+        +createRubberDuck(): Quackable
+    }
+}
+QuackObservable-[hidden]right AbstractDuckFactory
+
+
+' --- Second row: factory subclasses under AbstractDuckFactory ---
+together {
+    class DuckFactory
+    class CountingDuckFactory
+    
+    interface Quackable {
+        +quack()
+    }
+
+    class Observable {
+        -List<Observer> observers
+        -QuackObservable duck
+        +Observable(QuackObservable)
+        +registerObserver(Observer)
+        +notifyObservers()
+    }
+
+}
+
+' Relationships for top/middle rows
+QuackObservable <|-- Quackable
+QuackObservable <|.. Observable
+QuackObservable <-- Observable
+AbstractDuckFactory <|-- DuckFactory
+AbstractDuckFactory <|-- CountingDuckFactory
+
+' Layout hints (optional)
+QuackObservable -[hidden]down Quackable
+AbstractDuckFactory -[hidden]down DuckFactory
+AbstractDuckFactory -[hidden]down CountingDuckFactory
+
+' --- Third row: two vertical columns side-by-side ---
+' Use two packages (columns) and make them together so they become columns next to each other.
+together {
+    rectangle Ducks {
+        class MallardDuck{
+            +quack()
+            +registerObserver()
+            +notifyObservers()
+        }
+        class RedheadDuck{
+            +quack()
+            +registerObserver()
+            +notifyObservers()            
+        }
+        class DuckCall{
+            +quack()
+            +registerObserver()
+            +notifyObservers()            
+        }
+        class RubberDuck{
+            +quack()
+            +registerObserver()
+            +notifyObservers()            
+        }
+
+    }
+
+    rectangle Utilities {
+        class GooseAdapter{
+            -Goose goose
+            +quack()
+            +registerObserver()
+            +notifyObservers()
+        }
+        class Flock{
+            -List Ducks
+            +add(Quackable)
+            +quack()
+            +registerObserver()
+            +notifyObservers()
+        }
+        class QuackCounter{
+            -Quackable duck
+            +quack()
+            +registerObserver()
+            +notifyObservers()            
+        }
+    }
+}
+
+
+MallardDuck-[hidden]down-RedheadDuck
+RedheadDuck-[hidden]down-DuckCall
+DuckCall-[hidden]down-RubberDuck
+
+GooseAdapter-[hidden]down-Flock
+Flock-[hidden]down-QuackCounter
+
+Quackable <|-- MallardDuck
+Quackable <|-- RedheadDuck
+Quackable <|-- DuckCall
+Quackable <|-- RubberDuck
+
+
+Quackable <|-- GooseAdapter
+Quackable <|-- Flock
+Quackable <|-- QuackCounter
+
+Observable <-- MallardDuck
+Observable <-- RedheadDuck
+Observable <-- DuckCall
+Observable <-- RubberDuck
+
+Observable <-- GooseAdapter
+Observable <-- Flock
+Observable <-- QuackCounter
+
+
+
+
+
+note "Each Quackable has an \ninstance of Observable\n to keep track of their\n observers and notify them\n when the Quackable quacks." as NoteObservable
+
+note "This is Adapter.." as NoteAdapter
+note "This is Composite" as NoteComposite
+note "This Decorator all act like Quackables" as NoteDecorator
+
+note "We have two kinds of\nQuackables: ducsks and\notherthings that want\nQuackable behaviour: like\nthe GooseAdapter, which\nwraps a Goose and makes\nit look like a Quackable;\nFlock, which is a\nQuackable Composite, and\nQuackCounter, which adds\n decorator behaviour to\nQuackables." as NoteDucks
+
+
+NoteObservable .. Observable
+NoteAdapter .. GooseAdapter
+NoteComposite .. Flock
+NoteDecorator .. QuackCounter
+NoteDucks .. Ducks
+NoteDucks .. Utilities
+
+@enduml
