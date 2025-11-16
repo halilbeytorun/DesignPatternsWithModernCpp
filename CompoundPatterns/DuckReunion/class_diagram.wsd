@@ -1,0 +1,101 @@
+
+@startuml
+title Duck Reunion - Class Diagram
+
+' Interfaces / Observers
+interface QuackObservable {
+	+registerObserver(Observer)
+	+notifyObservers()
+}
+interface Quackable {
+	+quack()
+}
+Quackable -|> QuackObservable
+
+interface Observer {
+	+update(QuackObservable)
+}
+
+' Factories
+abstract class AbstractDuckFactory {
+	+createMallardDuck(): Quackable
+	+createRedheadDuck(): Quackable
+	+createDuckCall(): Quackable
+	+createRubberDuck(): Quackable
+}
+class DuckFactory
+class CountingDuckFactory
+DuckFactory -|> AbstractDuckFactory
+CountingDuckFactory -|> AbstractDuckFactory
+
+' Ducks and adapters
+class MallardDuck
+class RedheadDuck
+class DuckCall
+class RubberDuck
+MallardDuck -|> Quackable
+RedheadDuck -|> Quackable
+DuckCall -|> Quackable
+RubberDuck -|> Quackable
+
+class Goose
+class GooseAdapter
+GooseAdapter -|> Quackable
+GooseAdapter o-- Goose : adapts
+
+' Decorator (QuackCounter)
+class QuackCounter {
+	-Quackable duck
+	-static int numberOfQuacks
+	+quack()
+	+getQuacks(): int
+}
+QuackCounter -|> Quackable
+QuackCounter *-- Quackable : wraps
+
+' Observable helper
+class Observable {
+	-List<Observer> observers
+	-QuackObservable duck
+	+Observable(QuackObservable)
+	+registerObserver(Observer)
+	+notifyObservers()
+}
+Observable ..> Observer : manages
+Observable ..> QuackObservable : references
+
+' Composite
+class Flock
+Flock -|> Quackable
+Flock o-- "0..*" Quackable : quackers
+
+' Observer implementation
+class Quackologist
+Quackologist -|> Observer
+
+' Relationships (usage)
+CountingDuckFactory ..> QuackCounter : returns
+CountingDuckFactory ..> MallardDuck : creates
+CountingDuckFactory ..> RedheadDuck : creates
+CountingDuckFactory ..> DuckCall : creates
+CountingDuckFactory ..> RubberDuck : creates
+
+MallardDuck o-- Observable : has
+RedheadDuck o-- Observable : has
+DuckCall o-- Observable : has
+RubberDuck o-- Observable : has
+GooseAdapter o-- Observable : has
+QuackCounter ..> Observable : delegates to (via duck)
+
+' Utility usage
+class DuckSimulator
+DuckSimulator ..> AbstractDuckFactory
+DuckSimulator ..> Quackable
+
+note "Notes:\n- QuackCounter is a Decorator that wraps a Quackable and counts quacks.\n- Observable implements QuackObservable and forwards events to registered Observers.\n- Flock is a Composite of Quackable objects." as N
+
+N .. QuackCounter
+
+@enduml
+
+
