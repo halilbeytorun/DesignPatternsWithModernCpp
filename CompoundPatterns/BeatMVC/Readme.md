@@ -1,0 +1,75 @@
+# Test Documentation 
+```plantuml
+@startuml
+title DJ MVC - Class Diagram
+' Modeler interface should at the top as well as observer interfaces!
+top to bottom direction
+together{
+    interface BeatModelInterface{
+        +initialize()
+        +on()
+        +off()
+        +setBPM(int)
+        +registerObserver(BeatObserver)
+        +removeObserver(BeatObserver)
+        +registerObserver(BPMObserver)
+        +removeObserver(BPMObserver)
+    }
+    interface BeatObserver{
+        +updateBeat()
+    }
+    interface BPMObserver{
+        +updateBPM()
+    }    
+}
+
+BeatModelInterface ..right> BeatObserver
+BeatModelInterface ..right> BPMObserver
+
+together{
+    interface ControllerInterface{
+        +start()
+        +stop()
+        +increaseBPM()
+        +decreaseBPM()
+        +setBPM(int)
+    }
+
+    class BeatModel{
+        +List<BeatObserver>
+        +List<BPMObserver>
+    }
+}
+
+BeatModelInterface --[hidden]down> ControllerInterface
+BeatModelInterface <|-- BeatModel
+BeatObserver <--o BeatModel
+BPMObserver <--o BeatModel
+
+together{
+    class DJView{
+        +BeatModelInterface
+        +ControllerInterface
+    }
+}
+
+BeatModelInterface <--o DJView
+ControllerInterface <--o DJView
+
+BeatObserver <|-- DJView
+BPMObserver <|-- DJView
+
+together{
+    class BeatController{
+        +BeatModelInterface
+        +DJView
+    }
+}
+DJView <--down* BeatController
+BeatModelInterface <--o BeatController
+ControllerInterface <|-- BeatController
+
+@enduml
+
+```
+
